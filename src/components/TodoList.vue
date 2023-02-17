@@ -37,6 +37,7 @@ export default {
     }
   },
   setup() {
+    // TosoListContainer.vue 에서 provide
     const removeTodo = inject('removeTodo');
     const completeTodo = inject('completeTodo');
     const today = inject('today');
