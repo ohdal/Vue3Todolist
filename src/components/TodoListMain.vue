@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { reef, provide, inject, watch } from 'vue';;
+import { ref, provide, inject, watch } from 'vue';;
 import { useFilter } from "../compositions/filters";
 
 import TodoListMenu from './TodoListMenu.vue';
@@ -85,6 +85,7 @@ export default {
           use_category.value = filters[new_filter].category;
         }
       },
+      // 첫 변화도 즉시 감시
       { immediate: true },
     )
 
