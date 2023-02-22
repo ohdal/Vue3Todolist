@@ -1,4 +1,4 @@
-import { inject } from "'vue'";
+import { inject } from 'vue';
 
 export const useFilter = () => {
     const today = inject("today");
@@ -12,9 +12,9 @@ export const useFilter = () => {
 
     // 앞으로 해야할 완료되지 않은 todo
     const getPendingTodos = (todos) => {
-        return todos.value.filter((todo) => todo.date < today && !todo.completed)
+        return todos.value.filter((todo) => todo.date > today && !todo.completed)
         .slice()
-        .sort(fnSort)
+        .sort(fnSort);
     }
 
     // 오늘날짜의 완료되지 않은 todo

@@ -29,11 +29,12 @@ export default {
         const addTodo = (todo, date) => {
             todos.value.push({
                 id: storage_id.value++,
-                job: job,
+                job: todo,
                 date: date,
                 completed: false,
             })
 
+            console.log(todos);
             saveTodos(todos);
         };
 

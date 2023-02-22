@@ -20,7 +20,7 @@ export const useStorage = () => {
         initTodos(temp_todos);
     }
 
-    const saveTodos = (toods) => {
+    const saveTodos = (todos) => {
         localStorage.setItem(KEY, JSON.stringify(todos.value));
     }
 

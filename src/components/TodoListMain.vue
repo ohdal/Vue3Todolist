@@ -18,6 +18,7 @@ import { useFilter } from "../compositions/filters";
 
 import TodoListMenu from './TodoListMenu.vue';
 import TodoList from "./TodoList.vue";
+import { looseIndexOf } from '@vue/shared';
 
 export default {
   name: 'TodoListMain',

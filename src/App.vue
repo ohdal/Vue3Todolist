@@ -1,11 +1,16 @@
 <template>
-  <div>
-    {{ today }}
-  </div>
+  <header>
+    <hgroup class="my-5">
+      <h1>나의 할 일</h1>
+      <em>{{ today }}</em>
+    </hgroup>
+  </header>
+  <todo-list-container></todo-list-container>
 </template>
 
 <script>
-import { inject } from "vue";
+import { inject } from 'vue';
+import TodoListContainer from "./components/TodoListContainer.vue";
 
 export default {
   name: 'App',
@@ -13,7 +18,18 @@ export default {
     const today = inject("today");
 
     return { today };
-
-  },
+  },  
+  components: { TodoListContainer },
 }
 </script>
+
+<style scoped>
+hgroup {
+  text-align: center;
+  font-family: 'Arial Bold';
+}
+
+hgroup h1 {
+  font-weight: bolder;
+}
+</style>
