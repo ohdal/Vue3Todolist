@@ -23,12 +23,10 @@
 </template>
 
 <script>
-import { ref, watch, computed, inject } from 'vue';
-
 export default {
   name: 'TodoListMenu',
   // emit을 사용하기 위해 OPtion API에 이벤트명 선언
-  emits: ['change-filter'],
+  /* emits: ['change-filter'],
   setup(props, context) {
     const filters = inject('filters');;
     const filter = ref(0);
@@ -51,8 +49,29 @@ export default {
       state,
       filter,
       filters,
-    }
-  }
+    } 
+  } */
 }
 
+</script>
+
+<script setup>
+import { ref, watch, computed, inject } from 'vue';
+
+// emits 옵션 대신 defineEmits 함수를 사용하면 된다.
+const emit = defineEmits(['change-filter']);
+const filters = inject('filters');
+const filter = ref(0);
+
+const state = computed(() => {
+  return filters[filter.value].str;
+})
+
+watch(
+  () => filter.value,
+  (filter) => {
+    // context.emit 대신 defineEmits로 선언한 emit을 이용하면 된다.
+    emit('change-filter', filter);
+  }
+)
 </script>

@@ -30,7 +30,7 @@ import { inject } from 'vue';
 
 export default {
   name: 'TodoList',
-  props: {
+  /* props: {
     data: {
       type: Array,
       default: [],
@@ -58,6 +58,34 @@ export default {
       today,
       completeTodo,
     }
-  }
+  } */
 }
+</script>
+
+<script setup>
+import { inject } from 'vue';
+
+// emit과 마찬가지로 defineProps라는 함수를 이용하면 된다.
+const props = defineProps({
+  data: {
+    type: Array,
+    default: [],
+  }
+})
+
+const removeTodo = inject('removeTodo');
+const completeTodo = inject('completeTodo');
+const today = inject('today');
+
+const menu = [
+  {
+    str: '할일 삭제',
+    func: removeTodo,
+  },
+  {
+    str: '할일 완료',
+    func: completeTodo,
+  }
+]
+
 </script>

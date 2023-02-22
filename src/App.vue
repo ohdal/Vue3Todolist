@@ -9,18 +9,20 @@
 </template>
 
 <script>
-import { inject } from 'vue';
-import TodoListContainer from "./components/TodoListContainer.vue";
-
 export default {
   name: 'App',
-  setup() {
-    const today = inject("today");
-
-    return { today };
-  },  
-  components: { TodoListContainer },
 }
+</script>
+
+<!-- 기본적으로 정의된 모든 변수들을 -->
+<!-- <template> 에서 바로 사용할 수 있도록 해준다.-->
+<script setup>
+// 따로 컴포넌트 선언이나 변수를 return 하지 않아도
+// Vue가 자동으로 설정해준다.
+import {inject} from 'vue';
+import TodoListContainer from './components/TodoListContainer.vue';
+
+const today = inject('today');
 </script>
 
 <style scoped>
