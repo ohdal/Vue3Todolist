@@ -39,6 +39,9 @@ const onAddTodo = () => {
   }
 }
 
+
+// <script> 태그를 사용해 setup 함수를 통해 return 시키는 경우
+// return {...toRefs(val_obj)} 이런식으로 스프레드 연산자를 사용했었다.
 const { job, date } = toRefs(val_obj);
 
 </script>
