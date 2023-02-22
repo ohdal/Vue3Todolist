@@ -4,6 +4,7 @@
     <div v-if="use_category">
       <em>{{ key }}</em>
     </div>
+    <todo-list :data="filtered_todos[key]"/>
   </div>
   <div class="my-2 mt-5">
     <span style="background-color: red;">&nbsp;</span>&nbsp;
@@ -18,7 +19,6 @@ import { useFilter } from "../compositions/filters";
 
 import TodoListMenu from './TodoListMenu.vue';
 import TodoList from "./TodoList.vue";
-import { looseIndexOf } from '@vue/shared';
 
 export default {
   name: 'TodoListMain',
